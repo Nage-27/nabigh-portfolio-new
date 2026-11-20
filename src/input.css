@@ -1,0 +1,147 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "DM Sans", sans-serif;
+  --font-display: "Space Grotesk", sans-serif;
+
+  --color-paper: #f5f5f0;
+  --color-ink: #1d1c1a;
+  --color-muted: #6b675f;
+  --color-line: #ddd5c4;
+  --color-accent: #d9552b;
+  --color-surface: #ebede5;
+  --color-text: #EF6905;
+  --color-accent-soft:#f6f1e7;
+  --color-contact:#2f4a3a;
+}
+
+@layer base {
+  * {
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: var(--color-accent-soft);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+  }
+
+  ::selection {
+    background-color: var(--color-accent-soft);
+    color: var(--color-ink);
+  }
+
+  a,
+  button {
+    -webkit-tap-highlight-color: transparent;
+  }
+}
+
+/* Decorative background */
+
+.hero-grid {
+  background-image:
+    linear-gradient(to right, rgba(28, 30, 26, 0.035) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(28, 30, 26, 0.035) 1px, transparent 1px);
+  background-size: 36px 36px;
+}
+
+/* Project visual elements */
+
+.project-art {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+}
+
+.project-art--travel {
+  background: linear-gradient(135deg, #dce8d8, #a9c5b0);
+}
+
+.project-art--travel::before {
+  content: "";
+  position: absolute;
+  width: 260px;
+  height: 260px;
+  top: -90px;
+  left: -55px;
+  border: 1px solid rgba(31, 65, 45, 0.22);
+  border-radius: 50%;
+  box-shadow:
+    0 0 0 25px rgba(31, 65, 45, 0.06),
+    0 0 0 55px rgba(31, 65, 45, 0.04);
+  z-index: -1;
+}
+
+.project-art--memory {
+  background: #252922;
+}
+
+.project-art--memory::before {
+  content: "";
+  position: absolute;
+  width: 240px;
+  height: 240px;
+  border: 1px solid rgba(216, 243, 106, 0.35);
+  border-radius: 50%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  box-shadow:
+    0 0 0 35px rgba(216, 243, 106, 0.04),
+    0 0 0 70px rgba(216, 243, 106, 0.03);
+  z-index: -1;
+}
+
+.project-art--fashion {
+  background: #ded6c7;
+}
+
+.project-art--fashion::before {
+  content: "";
+  position: absolute;
+  width: 220px;
+  height: 280px;
+  border: 1px solid rgba(28, 30, 26, 0.2);
+  transform: rotate(35deg);
+  top: -100px;
+  right: -20px;
+  z-index: -1;
+}
+
+/* Efek Animasi */
+
+.fade-up {
+  animation: fadeUp 0.8s ease both;
+}
+
+.fade-up-delay {
+  animation: fadeUp 0.8s 0.15s ease both;
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
